@@ -10,21 +10,12 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
-gulp.src(['./src/seleniumtests/*.js'])
-    .pipe(angularProtractor({
-        'configFile': 'conf.js',
-        'autoStartStopServer': true,
-        'debug': false
-    }))
-    .on('error', function(e) { throw e });
-
 gulp.task('protractor', function(callback) {
-    gulp
-        .src(['example_spec.js'])
+    gulp.src(['./seleniumtests/pinterest*.js'])
         .pipe(angularProtractor({
             'configFile': 'conf.js',
             'debug': false,
-            'args': ['--baseUrl', 'http://127.0.0.1:8000'],
+//            'args': ['--baseUrl', 'http://127.0.0.1:8000'],
             'autoStartStopServer': true
         }))
         .on('error', function(e) {
@@ -33,38 +24,7 @@ gulp.task('protractor', function(callback) {
         .on('end', callback);
 });
 
-
-// Lint Task
-gulp.task('lint', function() {
-    return gulp.src('js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
-
-// Compile Our Sass
-gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('dist/css'));
-});
-
-// Concatenate & Minify JS
-gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('dist'))
-        .pipe(rename('all.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
-});
-
-// Watch Files For Changes
-gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
-    gulp.watch('scss/*.scss', ['sass']);
-});
-
 // Default Task
-gulp.task('default', ['lint', 'protractor', 'scripts', 'watch']);
+gulp.task('default', ['protractor']);
 
 

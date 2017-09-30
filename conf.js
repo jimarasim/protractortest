@@ -5,11 +5,6 @@ exports.config = {
   capabilities: {
     browserName: 'chrome'
   }  
-//  multiCapabilities: [{
-//    browserName: 'firefox'
-//  }, {
-//    browserName: 'chrome'
-//  }]
 };
 
 
