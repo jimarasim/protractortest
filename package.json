@@ -4,7 +4,8 @@
   "description": "tests that use protractor",
   "main": "conf.js",
   "scripts": {
-    "test": "protractor conf.js"
+    "gulp": "node node_modules/gulp/bin/gulp.js",
+    "test": "npm run gulp protractor"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,18 @@
   },
   "homepage": "https://github.com/jimarasim/protractortest#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "latest",
+    "gulp-angular-protractor": "latest",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
-    "jshint": "^2.9.5"
+    "jshint": "^2.9.5",
+    "protractor": "^5.1.2",
+    "webdriver-manager": "latest"
+  },
+  "dependencies": {
+    "geckodriver": "^1.9.0"
   }
 }

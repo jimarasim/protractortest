@@ -7,7 +7,7 @@ var pinterestViewerPage = new PinterestViewerPage();
 
 describe('Pinterest Viewer Page', function() {
 beforeEach(function() {
-    browser.waitForAngularEnabled(false); 
+    browser.waitForAngularEnabled(false); //browser.ignoreSynchronisation = true;
     browser.driver.manage().window().maximize();
     pinterestHomePage.get();
     pinterestLoginPage.loginIfNot();
