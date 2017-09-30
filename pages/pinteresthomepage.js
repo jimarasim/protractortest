@@ -4,6 +4,7 @@ var PinterestHomePage = function(){
   var exploreButton = element(by.xpath('//div[contains(text(),"Explore")]'));
   var homeButton = element(by.xpath('//div[contains(text(),"Home")]'));
   var aResult = element(by.css('div[data-grid-item=true]'));
+  var eleventhResult = element(by.css('div[data-grid-item=true]:nth-child(11)'));
   var resultsList = element.all(by.css('div[data-grid-item=true]'));
   var articleList = element.all(by.css('div._0._25._2p._2c._2i._3h._56._jz._s._3o > div.article'));
 
@@ -35,6 +36,13 @@ var PinterestHomePage = function(){
   
   this.clickAResult = function(){
       aResult.click();
+      
+      var until = protractor.ExpectedConditions;
+      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 10000, 'Viewer send button taking too long to appear');
+  }
+  
+  this.clickEleventhResult = function(){
+      eleventhResult.click();
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 10000, 'Viewer send button taking too long to appear');

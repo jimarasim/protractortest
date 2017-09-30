@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "tests that use protractor",
   "main": "conf.js",
-  "scripts": {
+  "scripts": {"start":"node gulpfile.js",
     "gulp": "node node_modules/gulp/bin/gulp.js",
     "test": "npm run gulp protractor"
   },

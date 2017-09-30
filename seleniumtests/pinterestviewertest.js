@@ -13,11 +13,22 @@ beforeEach(function() {
     pinterestLoginPage.loginIfNot();
  });
  
-it('should be able to cycle through viewer', function() {
+it('should be able to cycle through viewer to the right', function() {
 
    pinterestHomePage.clickAResult();
    for(var i=0;i<10;i++){
         pinterestViewerPage.clickNextSlide();
+        expect(pinterestViewerPage.sendCount()).toEqual(1);
+   }
+   
+ });
+ 
+  
+it('should be able to cycle through viewer to the left', function() {
+
+   pinterestHomePage.clickEleventhResult();
+   for(var i=0;i<10;i++){
+        pinterestViewerPage.clickPreviousSlide();
         expect(pinterestViewerPage.sendCount()).toEqual(1);
    }
    

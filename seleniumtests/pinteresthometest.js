@@ -18,12 +18,12 @@ it('it should p search and find more than 10 results', function() {
    expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(10);
  });
  
- it('it should explore search and find more than 10 results', function() {
+ it('it should explore search and find more than 10 results and 5 articles', function() {
 
    pinterestHomePage.pressExploreButton();
    
    expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(10);
-   expect(pinterestHomePage.getArticlesCount()).toEqual(6);
+   expect(pinterestHomePage.getArticlesCount()).toBeGreaterThan(5);
  });
  
   it('it should explore search and find more than 10 results', function() {
