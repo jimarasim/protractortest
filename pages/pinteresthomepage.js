@@ -7,8 +7,12 @@ var PinterestHomePage = function(){
   var eleventhResult = element(by.css('div[data-grid-item=true]:nth-child(11)'));
   var resultsList = element.all(by.css('div[data-grid-item=true]'));
   var articleList = element.all(by.css('div._0._25._2p._2c._2i._3h._56._jz._s._3o > div.article'));
+  var searchTextbox = element(by.css('input[name=q]'));
+  var searchImprovementsWrapper = element(by.css('div.improvementsWrapper'));
+  var secondSearchImprovement = element(by.css('div.improvementsWrapper > div > div:nth-child(1) > div > div > div:nth-child(2) > a'));
 
   //PUBLIC
+
   this.get = function(){
       browser.get('https://www.pinterest.com/');
   };
@@ -34,6 +38,15 @@ var PinterestHomePage = function(){
       browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM');   
   };
   
+  this.searchForItem = function(searchString){
+      searchTextbox.click();
+      searchTextbox.sendKeys(searchString);
+      searchTextbox.sendKeys(protractor.Key.ENTER);
+  
+      var until = protractor.ExpectedConditions;
+      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM after search entered');  
+  }
+  
   this.clickAResult = function(){
       aResult.click();
       
@@ -54,6 +67,17 @@ var PinterestHomePage = function(){
   
   this.getArticlesCount = function(){
       return articleList.count();
+  }
+  
+  this.searchImprovementsPresence = function(){
+      return searchImprovementsWrapper.isPresent();
+  }
+  
+  this.clickSecondImprovement = function(){
+      secondSearchImprovement.click();
+      
+      var until = protractor.ExpectedConditions;
+      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM'); 
   }
   
 };

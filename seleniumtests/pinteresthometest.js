@@ -10,8 +10,8 @@ beforeEach(function() {
     pinterestHomePage.get();
     pinterestLoginPage.loginIfNot();
  });
- 
-it('it should p search and find more than 10 results', function() {
+
+ it('it should p search and find more than 10 results', function() {
 
    pinterestHomePage.pressPButton();
    
@@ -31,5 +31,15 @@ it('it should p search and find more than 10 results', function() {
    pinterestHomePage.pressHomeButton();
    
    expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(10);
+ });
+ 
+ it('it should show search results and improvements', function(){
+     pinterestHomePage.searchForItem('honda');
+ 
+     expect(pinterestHomePage.searchImprovementsPresence()).toBeTruthy();
+     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(10);
+     
+     pinterestHomePage.clickSecondImprovement();
+     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(10);
  });
 });
