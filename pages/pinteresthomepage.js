@@ -5,7 +5,7 @@ var PinterestHomePage = function(){
   var homeButton = element(by.xpath('//div[contains(text(),"Home")]'));
   var profileButton = element(by.css('div[aria-label=Saved]'));
   var aResult = element(by.css('div[data-grid-item=true]'));
-  var eleventhResult = element(by.css('div[data-grid-item=true]:nth-child(11)'));
+  var fifthResult = element(by.css('div[data-grid-item=true]:nth-child(5)'));
   var resultsList = element.all(by.css('div[data-grid-item=true]'));
   var articleList = element.all(by.css('div._0._25._2p._2c._2i._3h._56._jz._s._3o > div.article'));
   var searchTextbox = element(by.css('input[name=q]'));
@@ -22,28 +22,28 @@ var PinterestHomePage = function(){
       pButton.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM');  
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');  
   };
   
   this.pressExploreButton = function(){
       exploreButton.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM');  
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');  
   };
   
   this.pressHomeButton = function(){
       homeButton.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM');   
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');   
   };
   
   this.pressProfileButton = function(){
       profileButton.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Boards")]'))), 10000, 'Boards button taking too long to appear in the DOM');   
+      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Boards")]'))), 20000, 'Boards button taking too long to appear in the DOM');   
   };
   
   this.searchForItem = function(searchString){
@@ -52,21 +52,21 @@ var PinterestHomePage = function(){
       searchTextbox.sendKeys(protractor.Key.ENTER);
   
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM after search entered');  
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM after search entered');  
   }
   
   this.clickAResult = function(){
       aResult.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 10000, 'Viewer send button taking too long to appear');
+      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
   }
   
-  this.clickEleventhResult = function(){
-      eleventhResult.click();
+  this.clickFifthResult = function(){
+      fifthResult.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 10000, 'Viewer send button taking too long to appear');
+      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
   }
   
   this.getResultsCount = function(){
@@ -85,7 +85,7 @@ var PinterestHomePage = function(){
       secondSearchImprovement.click();
       
       var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM'); 
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM'); 
   }
   
 };

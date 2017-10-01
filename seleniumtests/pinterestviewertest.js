@@ -15,7 +15,7 @@ beforeEach(function() {
  
 it('Clicking a pin result should take you to the pin result viewer, where you can click a next button for a slideshow of at least 10 slides.', function() {
     pinterestHomePage.clickAResult();
-    for(var i=0;i<10;i++){
+    for(var i=0;i<5;i++){
         pinterestViewerPage.clickNextSlide();
         expect(pinterestViewerPage.sendCount()).toEqual(1);
         expect(pinterestViewerPage.moreOptionsPresence()).toBeTruthy();
@@ -23,8 +23,8 @@ it('Clicking a pin result should take you to the pin result viewer, where you ca
 });
   
 it('Clicking the eleventh pin result should take you to a pin result viewer, where you can click a previous button for a slidshow of the 10 previous slides.', function() {
-    pinterestHomePage.clickEleventhResult();
-    for(var i=0;i<10;i++){
+    pinterestHomePage.clickFifthResult();
+    for(var i=0;i<3;i++){
         pinterestViewerPage.clickPreviousSlide();
         expect(pinterestViewerPage.sendCount()).toEqual(1);
         expect(pinterestViewerPage.moreOptionsPresence()).toBeTruthy();

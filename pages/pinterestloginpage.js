@@ -13,7 +13,7 @@ var PinterestLoginPage = function(){
   
   pressGoogleConnectButtonAndSwitchToPopup = function(){
       pGoogleConnectButton.click();
-      browser.wait(windowCount(2), 5000);
+      browser.wait(windowCount(2), 20000);
       
       browser.getAllWindowHandles().then(function(handles){
         browser.switchTo().window(handles[1]);
@@ -25,7 +25,7 @@ var PinterestLoginPage = function(){
         browser.switchTo().window(handles[0]);
         
         var until = protractor.ExpectedConditions;
-        browser.wait(until.elementToBeClickable(pSearch), 10000, 'PSearch Element taking too long to appear in the DOM');      
+        browser.wait(until.elementToBeClickable(pSearch), 20000, 'PSearch Element taking too long to appear in the DOM');      
 
       });
   };

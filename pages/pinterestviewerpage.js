@@ -16,14 +16,14 @@ var PinterestViewerPage = function(){
   this.clickNextSlide = function(){
         browser.getCurrentUrl().then(function(currentUrl){
             nextSlide.click();
-            browser.wait(urlChanged(currentUrl), 5000); 
+            browser.wait(urlChanged(currentUrl), 20000); 
         });
   };
   
   this.clickPreviousSlide = function(){
         browser.getCurrentUrl().then(function(currentUrl){
             previousSlide.click();
-            browser.wait(urlChanged(currentUrl), 5000); 
+            browser.wait(urlChanged(currentUrl), 20000); 
         });
   };
   
