@@ -3,6 +3,7 @@ var PinterestViewerPage = function(){
   var nextSlide = element(by.css('button[aria-label="Next Pin"]'));
   var previousSlide = element(by.css('button[aria-label="Previous Pin"]'));
   var send = element.all(by.xpath('//div[contains(text(),"Send")]'));
+  var moreOptions = element.all(by.css('button[aria-label="More options"]'));
   
   var urlChanged = function(url) {
   return function () {
@@ -30,7 +31,9 @@ var PinterestViewerPage = function(){
       return send.count();
   };
   
-  
+  this.moreOptionsPresence = function(){
+      return moreOptions.isPresent();
+  };
   
 };
   
