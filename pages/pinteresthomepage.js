@@ -3,6 +3,7 @@ var PinterestHomePage = function(){
   var pButton = element(by.css('svg._mh'));
   var exploreButton = element(by.xpath('//div[contains(text(),"Explore")]'));
   var homeButton = element(by.xpath('//div[contains(text(),"Home")]'));
+  var profileButton = element(by.css('div[aria-label=Saved]'));
   var aResult = element(by.css('div[data-grid-item=true]'));
   var eleventhResult = element(by.css('div[data-grid-item=true]:nth-child(11)'));
   var resultsList = element.all(by.css('div[data-grid-item=true]'));
@@ -36,6 +37,13 @@ var PinterestHomePage = function(){
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(aResult), 10000, 'Result Element taking too long to appear in the DOM');   
+  };
+  
+  this.pressProfileButton = function(){
+      profileButton.click();
+      
+      var until = protractor.ExpectedConditions;
+      browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Boards")]'))), 10000, 'Boards button taking too long to appear in the DOM');   
   };
   
   this.searchForItem = function(searchString){
