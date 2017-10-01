@@ -18,28 +18,28 @@ var PinterestHomePage = function(){
       browser.get('https://www.pinterest.com/');
   };
   
-  this.pressPButton = function(){
+  this.clickPButton = function(){
       pButton.click();
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');  
   };
   
-  this.pressExploreButton = function(){
+  this.clickExploreButton = function(){
       exploreButton.click();
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');  
   };
   
-  this.pressHomeButton = function(){
+  this.clickHomeButton = function(){
       homeButton.click();
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM');   
   };
   
-  this.pressProfileButton = function(){
+  this.clickProfileButton = function(){
       profileButton.click();
       
       var until = protractor.ExpectedConditions;

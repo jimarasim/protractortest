@@ -14,7 +14,7 @@ beforeEach(function() {
  });
 
 it('Pinterest profile page should have several expected elements on it: profile buttons, profile picture, etc', function() {
-    pinterestHomePage.pressProfileButton();
+    pinterestHomePage.clickProfileButton();
     expect(pinterestProfilePage.settingsButtonPresence()).toBeTruthy();    
     expect(pinterestProfilePage.sendProfileButtonPresence()).toBeTruthy();    
     expect(pinterestProfilePage.userMenuButtonPresence()).toBeTruthy();    

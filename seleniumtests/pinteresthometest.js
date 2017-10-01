@@ -12,18 +12,18 @@ beforeEach(function() {
  });
 
  it('Clicking the Pinterest Icon should yield pin results.', function() {
-    pinterestHomePage.pressPButton();
+    pinterestHomePage.clickPButton();
     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(4);
  });
  
  it('Clicking the Explore button should yield pin results and articles.', function() {
-    pinterestHomePage.pressExploreButton();
+    pinterestHomePage.clickExploreButton();
     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(2);
     expect(pinterestHomePage.getArticlesCount()).toBeGreaterThan(2);
  });
  
   it('Clicking the Home button should yield pin results.', function() {
-    pinterestHomePage.pressHomeButton();
+    pinterestHomePage.clickHomeButton();
     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(4);
  });
  

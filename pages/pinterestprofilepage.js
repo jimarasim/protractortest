@@ -35,6 +35,13 @@ var PinterestProfilePage = function(){
     this.triedDivPresence = function(){
         return triedDiv.isPresent();
     };
+    
+    this.clickSettingsButton = function(){
+        settingsButton.click();
+        
+        var until = protractor.ExpectedConditions;
+        browser.wait(until.elementToBeClickable(element(by.id('accountBasicsEmail'))), 20000, 'Email Textbox taking too long to appear in the DOM');  
+    }
 };
 
 module.exports = PinterestProfilePage;

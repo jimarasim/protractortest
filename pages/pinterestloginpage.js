@@ -11,7 +11,7 @@ var PinterestLoginPage = function(){
       browser.get('https://www.pinterest.com/');
   };
   
-  pressGoogleConnectButtonAndSwitchToPopup = function(){
+  clickGoogleConnectButtonAndSwitchToPopup = function(){
       pGoogleConnectButton.click();
       browser.wait(windowCount(2), 20000);
       
@@ -34,7 +34,7 @@ var PinterestLoginPage = function(){
         var googleLoginPage = new GoogleLoginPage();
         browser.isElementPresent(loginButton).then(function(result){
         if(result===true){
-            pressGoogleConnectButtonAndSwitchToPopup();
+            clickGoogleConnectButtonAndSwitchToPopup();
             googleLoginPage.login();
             waitForLoginAfterGoogle();
         }
