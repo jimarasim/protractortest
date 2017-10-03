@@ -11,9 +11,12 @@ var PinterestHomePage = function(){
   var searchTextbox = element(by.css('input[name=q]'));
   var searchImprovementsWrapper = element(by.css('div.improvementsWrapper'));
   var secondSearchImprovement = element(by.css('div.improvementsWrapper > div > div:nth-child(1) > div > div > div:nth-child(2) > a'));
+  var addPinButton = element(by.css('button[aria-label="Add Pin"]'));
+  var moreButton = element(by.css('button[aria-label="More"]'));
+  var privacyLink = element(by.xpath('//a[contains(text(),"Privacy")]'));
+
 
   //PUBLIC
-
   this.get = function(){
       browser.get('https://www.pinterest.com/');
   };
@@ -60,14 +63,14 @@ var PinterestHomePage = function(){
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
-  }
+  };
   
   this.clickFifthResult = function(){
       fifthResult.click();
       
       var until = protractor.ExpectedConditions;
       browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
-  }
+  };
   
   this.clickRandomResult = function(){
     resultsList.count().then(function(resultCount){
@@ -77,7 +80,14 @@ var PinterestHomePage = function(){
         var until = protractor.ExpectedConditions;
         browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
     });
-  }
+  };
+  
+  this.clickSecondImprovement = function(){
+      secondSearchImprovement.click();
+      
+      var until = protractor.ExpectedConditions;
+      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM'); 
+  };
   
   this.getResultsCount = function(){
       return resultsList.count();
@@ -85,18 +95,23 @@ var PinterestHomePage = function(){
   
   this.getArticlesCount = function(){
       return articleList.count();
-  }
+  };
   
   this.searchImprovementsPresence = function(){
       return searchImprovementsWrapper.isPresent();
-  }
+  };
   
-  this.clickSecondImprovement = function(){
-      secondSearchImprovement.click();
-      
-      var until = protractor.ExpectedConditions;
-      browser.wait(until.elementToBeClickable(aResult), 20000, 'Result Element taking too long to appear in the DOM'); 
-  }
+  this.addPinButtonPresence = function(){
+      return addPinButton.isPresent();
+  };
+  
+  this.moreButtonPresence = function(){
+      return moreButton.isPresent();
+  };
+  
+  this.privacyLinkPresence = function(){
+      return privacyLink.isPresent();
+  };
   
 };
   

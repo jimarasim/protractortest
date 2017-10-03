@@ -35,4 +35,17 @@ beforeEach(function() {
     pinterestHomePage.clickSecondImprovement();
     expect(pinterestHomePage.getResultsCount()).toBeGreaterThan(4);
  });
+ 
+ it('Scrolling down the page should keep Add Pin button, More button, and Privacy link available', function(){
+    pinterestHomePage.clickHomeButton();
+    expect(pinterestHomePage.addPinButtonPresence()).toBeTruthy();
+    expect(pinterestHomePage.moreButtonPresence()).toBeTruthy();
+    expect(pinterestHomePage.privacyLinkPresence()).toBeTruthy();
+    
+    browser.executeScript('window.scrollTo(0,5000);').then(function(){
+        expect(pinterestHomePage.addPinButtonPresence()).toBeTruthy();
+        expect(pinterestHomePage.moreButtonPresence()).toBeTruthy();
+        expect(pinterestHomePage.privacyLinkPresence()).toBeTruthy();            
+    });
+ });
 });
