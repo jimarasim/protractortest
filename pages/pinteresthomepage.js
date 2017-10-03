@@ -69,6 +69,16 @@ var PinterestHomePage = function(){
       browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
   }
   
+  this.clickRandomResult = function(){
+    resultsList.count().then(function(resultCount){
+        var randomResultNumber = Math.floor((Math.random() * resultCount) + 1);
+        resultsList.get(randomResultNumber).click();
+
+        var until = protractor.ExpectedConditions;
+        browser.wait(until.elementToBeClickable(element(by.xpath('//div[contains(text(),"Send")]'))), 20000, 'Viewer send button taking too long to appear');
+    });
+  }
+  
   this.getResultsCount = function(){
       return resultsList.count();
   };
