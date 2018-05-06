@@ -29,6 +29,11 @@ it('Clicking the eleventh pin result should take you to a pin result viewer, whe
         expect(pinterestViewerPage.sendCount()).toEqual(1);
         expect(pinterestViewerPage.moreOptionsPresence()).toBeTruthy();
     }
+});  
+
+it('Clicking a random slide should allow saving to the Test category, and a saved message should appear.', function() {
+    pinterestHomePage.clickRandomResult();
+    pinterestViewerPage.clickSaveAndSaveToTest();
 });
 });
 
