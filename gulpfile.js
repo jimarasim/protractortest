@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var angularProtractor = require('gulp-angular-protractor');
 
 gulp.task('protractor', function(callback) {
-    gulp.src(['./seleniumtests/expediahometest.js'])
+    gulp.src(['./seleniumtests/expediahometest.js', './seleniumtests/expediabookpackagetest.js'])
         .pipe(angularProtractor({
             'configFile': 'conf.js',
             'debug': false,

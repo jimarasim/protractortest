@@ -1,4 +1,6 @@
 /* global by, browser, element */
+var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectPage.js');
+var utilities = require('../utilities/utilities');
 
 module.exports = class ExpediaHomePage {
     
@@ -10,10 +12,6 @@ module.exports = class ExpediaHomePage {
     get packageSearchButton() { return element(by.id('search-button-hp-package')); }
     get legalText() { return element(by.css('div.legal')); }
     
-    navigate() {
-        browser.get('https://www.expedia.com');
-    }
-    
     clickHeaderLogo() {
         this.headerLogo.click();
         
@@ -21,38 +19,31 @@ module.exports = class ExpediaHomePage {
         browser.wait(until.presenceOf(this.packageOriginInput), 5000, 'Element originInput taking too long to appear in the DOM');       
     }
     
+    getLegalText() {
+        return this.legalText.getText();
+    }  
+    
+    navigate() {
+        browser.get('https://www.expedia.com');
+    }
+    
     submitOriginAndDestinationForToday(cityCodeOrigin, cityCodeDestination) {
         this.packageOriginInput.sendKeys(cityCodeOrigin);
         this.packageDestinationInput.sendKeys(cityCodeDestination);
         
-        let travelDate = this.getCurrentDateInMMDDYYYY();
+        let travelDate = utilities.getCurrentDateInMMDDYYYY();
+        this.packageDepartingInput.clear(); //need to clear these because the site will remember them, and append if not
+        this.packageReturningInput.clear();
         this.packageDepartingInput.sendKeys(travelDate);
         this.packageReturningInput.sendKeys(travelDate);
         
         this.packageSearchButton.click();
-    }
-    
-    getLegalText() {
-        return this.legalText.getText();
-    }
-    
-    getCurrentDateInMMDDYYYY() {
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1; //January is 0!
-        var yyyy = today.getFullYear();
-
-        if(dd<10) {
-            dd = '0'+dd;
-        } 
-
-        if(mm<10) {
-            mm = '0'+mm;
-        } 
-
-        return mm + '/' + dd + '/' + yyyy;
-    }
-    
+        
+        var expediaPackageHotelSelectPage = new ExpediaPackageHotelSelectPage();
+        expediaPackageHotelSelectPage.waitForPage();
+        return expediaPackageHotelSelectPage;
+        
+    }  
 };
 
 
