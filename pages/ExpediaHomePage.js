@@ -44,6 +44,29 @@ module.exports = class ExpediaHomePage {
         return expediaPackageHotelSelectPage;
         
     }  
+    
+    verifyHeaderLinks() {
+        let headerLinks = {
+            'Bundle and Save' : 'https://www.expedia.com/Vacation-Packages',
+            'Hotels' : 'https://www.expedia.com/Hotels',
+            'Cars' : 'https://www.expedia.com/Cars',
+            'Flights' : 'https://www.expedia.com/Flights',
+            'Cruises' : 'https://www.expedia.com/Cruises',
+            'Things to Do' : 'https://www.expedia.com/Activities',
+            'Discover' : 'https://www.expedia.com/search-results?rfrr=headermenu',
+            'Vacation Rentals' : 'https://www.expedia.com/vacation-rentals/',
+            'Deals' : 'https://www.expedia.com/Deals',
+            'Rewards' : 'https://www.expedia.com/rewards/howitworks',
+            'Mobile' : 'https://www.expedia.com/app',
+            'Collections' : 'https://www.expedia.com/collections'
+        }
+        for(let link in headerLinks) {
+            element(by.linkText(link)).click();
+            browser.getCurrentUrl().then((result)=>{
+                expect(result).toEqual(headerLinks[link]);
+            });
+        }
+    }
 };
 
 
