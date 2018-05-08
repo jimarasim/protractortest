@@ -3,7 +3,7 @@ var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectP
 
 var expediaHomePage = new ExpediaHomePage();
 
-xdescribe('Expedia Home Page', function() {
+describe('Expedia Home Page', function() {
 beforeEach(function() {
    jasmine.DEFAULT_TIMEOUT_INTERVAL = 300000;
    browser.waitForAngularEnabled(false); 
@@ -19,11 +19,19 @@ it('Should load the home page when you click the header logo', function() {
 it('Should be able to submit package reservation form', function(){
     var expediaPackageHotelSelectPage = expediaHomePage.submitOriginAndDestinationForToday('SEA','BOI');
     
+    expediaPackageHotelSelectPage.waitForPage();
+    
     expect(expediaPackageHotelSelectPage.getHotelLinks().count()).toBeGreaterThan(10);
  });
  
  it('Should bring up the correct page for all links in the header', function() {
     expediaHomePage.verifyHeaderLinks();
+ });
+ 
+ it('Should show required fields error message when you submit reservation form without info', function() {
+    expediaHomePage.submitOrginAndDestinationEmpty(); 
+    
+    expect(expediaHomePage.packageEmptyFieldAlert.isDisplayed()).toBeTruthy();
  });
  
 });
