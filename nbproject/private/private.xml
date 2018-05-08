@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/utilities/utilities.js</file>
+            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/package.json</file>
             <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/seleniumtests/expediabookpackagetest.js</file>
             <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/seleniumtests/expediahometest.js</file>
-            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/conf.js</file>
-            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/pages/ExpediaPackageHotelSelectPage.js</file>
+            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/pages/BasePage.js</file>
             <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/pages/ExpediaHomePage.js</file>
             <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/gulpfile.js</file>
-            <file>file:/Users/jameskarasim/Downloads/installed/repositories/protractortest/pages/ExpediaPackageHotelBookPage.js</file>
         </group>
     </open-files>
 </project-private>
