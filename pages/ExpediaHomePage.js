@@ -38,11 +38,8 @@ module.exports = class ExpediaHomePage {
         this.packageReturningInput.sendKeys(travelDate);
         
         this.packageSearchButton.click();
-        
-        var expediaPackageHotelSelectPage = new ExpediaPackageHotelSelectPage();
-        expediaPackageHotelSelectPage.waitForPage();
-        return expediaPackageHotelSelectPage;
-        
+
+        return new ExpediaPackageHotelSelectPage;
     }  
     
     verifyHeaderLinks() {

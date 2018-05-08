@@ -3,7 +3,7 @@ var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectP
 
 var expediaHomePage = new ExpediaHomePage();
 
-describe('Expedia Home Page', function() {
+xdescribe('Expedia Home Page', function() {
 beforeEach(function() {
    jasmine.DEFAULT_TIMEOUT_INTERVAL = 300000;
    browser.waitForAngularEnabled(false); 
