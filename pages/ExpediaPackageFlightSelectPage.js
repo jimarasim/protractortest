@@ -1,4 +1,4 @@
-/* global by */
+/* global by, protractor, browser */
 var ExpediaPackageSummaryPage = require('../pages/ExpediaPackageSummaryPage');
 
 module.exports = class ExpediaPackageFlightSelectPage {

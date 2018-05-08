@@ -1,4 +1,4 @@
-/* global by, browser, element, expect */
+/* global by, browser, element, expect, protractor */
 var BasePage = require('./BasePage');
 var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectPage.js');
 var utilities = require('../utilities/utilities');
