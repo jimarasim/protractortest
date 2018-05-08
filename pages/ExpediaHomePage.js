@@ -12,6 +12,8 @@ module.exports = class ExpediaHomePage {
     get packageSearchButton() { return element(by.id('search-button-hp-package')); }
     get legalText() { return element(by.css('div.legal')); }
     get packageEmptyFieldAlert() { return element(by.css('#gcw-packages-form-hp-package div.validation-alert')); }
+    get packageEmptyOriginMessage() { return element(by.css('a.error-link[href="#package-origin-hp-package"]'));}
+    get packageEmptyDestinationMessage() { return element(by.css('a.error-link[href="#package-destination-hp-package"]'));    }
     
     clickHeaderLogo() {
         this.headerLogo.click();
