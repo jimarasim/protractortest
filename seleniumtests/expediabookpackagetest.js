@@ -8,7 +8,7 @@ var ExpediaPackageReviewPage = require('../pages/ExpediaPackageReviewPage');
 
 var expediaHomePage = new ExpediaHomePage();
 
-xdescribe('Package reservation', function(){
+describe('Package reservation', function(){
     beforeEach(function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 105000;
         browser.waitForAngularEnabled(false); 

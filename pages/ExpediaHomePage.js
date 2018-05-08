@@ -1,8 +1,9 @@
-/* global by, browser, element */
+/* global by, browser, element, expect */
+var BasePage = require('./BasePage');
 var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectPage.js');
 var utilities = require('../utilities/utilities');
 
-module.exports = class ExpediaHomePage {
+module.exports = class ExpediaHomePage extends BasePage{
     
     get headerLogo() { return element(by.id('header-logo')); }
     get packageOriginInput() { return element(by.id('package-origin-hp-package')); }
@@ -52,7 +53,7 @@ module.exports = class ExpediaHomePage {
         this.packageSearchButton.click();
     }
     
-    verifyHeaderLinks() {
+    async verifyHeaderLinks() {
         let headerLinks = {
             'Bundle and Save' : 'https://www.expedia.com/Vacation-Packages',
             'Hotels' : 'https://www.expedia.com/Hotels',
@@ -66,12 +67,12 @@ module.exports = class ExpediaHomePage {
             'Rewards' : 'https://www.expedia.com/rewards/howitworks',
             'Mobile' : 'https://www.expedia.com/app',
             'Collections' : 'https://www.expedia.com/collections'
-        }
+        };
         for(let link in headerLinks) {
             element(by.linkText(link)).click();
-            browser.getCurrentUrl().then((result)=>{
-                expect(result).toEqual(headerLinks[link]);
-            });
+            
+            let currentUrl = await this.getCurrentUrl();
+            expect(currentUrl).toEqual(headerLinks[link]);
         }
     }
 };

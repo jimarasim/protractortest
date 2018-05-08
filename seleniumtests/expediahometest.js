@@ -1,3 +1,5 @@
+/* global expect, browser */
+
 var ExpediaHomePage = require('../pages/ExpediaHomePage.js');
 var ExpediaPackageHotelSelectPage = require('../pages/ExpediaPackageHotelSelectPage.js');
 
@@ -10,13 +12,13 @@ beforeEach(function() {
    expediaHomePage.navigate();
  });
 
-xit('Should load the home page when you click the header logo', function() {
+it('Should load the home page when you click the header logo', function() {
     expediaHomePage.clickHeaderLogo();
     
     expect(expediaHomePage.getLegalText()).toContain('not responsible for');
  });
  
-xit('Should be able to submit package reservation form', function(){
+it('Should be able to submit package reservation form', function(){
     var expediaPackageHotelSelectPage = expediaHomePage.submitOriginAndDestinationForToday('SEA','BOI');
     
     expediaPackageHotelSelectPage.waitForPage();
@@ -24,7 +26,7 @@ xit('Should be able to submit package reservation form', function(){
     expect(expediaPackageHotelSelectPage.getHotelLinks().count()).toBeGreaterThan(10);
  });
  
- xit('Should bring up the correct page for all links in the header', function() {
+ it('Should bring up the correct page for all links in the header', function() {
     expediaHomePage.verifyHeaderLinks();
  });
  
