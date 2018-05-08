@@ -31,7 +31,7 @@ module.exports = class ExpediaHomePage {
         this.packageOriginInput.sendKeys(cityCodeOrigin);
         this.packageDestinationInput.sendKeys(cityCodeDestination);
         
-        let travelDate = utilities.getCurrentDateInMMDDYYYY();
+        let travelDate = utilities.getCurrentDateInMMDDYYYY(1);
         this.packageDepartingInput.clear(); //need to clear these because the site will remember them, and append if not
         this.packageReturningInput.clear();
         this.packageDepartingInput.sendKeys(travelDate);

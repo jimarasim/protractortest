@@ -10,13 +10,13 @@ beforeEach(function() {
    expediaHomePage.navigate();
  });
 
-xit('Should load the home page when you click the header logo', function() {
+it('Should load the home page when you click the header logo', function() {
     expediaHomePage.clickHeaderLogo();
     
     expect(expediaHomePage.getLegalText()).toContain('not responsible for');
  });
  
-xit('Should be able to submit package reservation form', function(){
+it('Should be able to submit package reservation form', function(){
     var expediaPackageHotelSelectPage = expediaHomePage.submitOriginAndDestinationForToday('SEA','BOI');
     
     expect(expediaPackageHotelSelectPage.getHotelLinks().count()).toBeGreaterThan(10);
